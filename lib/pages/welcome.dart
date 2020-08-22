@@ -13,8 +13,10 @@ class _WelcomeState extends State<Welcome> {
         color: Color(0xFFFFFFFF),
         child: Column(
           children: <Widget>[
-           ImageWelcome(),
-            BodyWelcome()
+            ImageWelcome(),
+            BodyWelcome(),
+            SocialWelcome(),
+            CreateAccountWelcome()
           ],
         ),
       ),
@@ -53,29 +55,32 @@ class _WelcomeState extends State<Welcome> {
         children: <Widget>[
           Text(
             'Welcome to',
-            style: TextStyle(
-                fontSize: 20, color: Color(0xFF22215B)),
+            style: TextStyle(fontSize: 20, color: Color(0xFF22215B)),
           ),
           SizedBox(
             height: 6,
           ),
           Text(
             'Dirbbox',
-            style: TextStyle(fontSize: 38, fontWeight: FontWeight.bold, color: Color(0xFF22215B)),
+            style: TextStyle(
+                fontSize: 38,
+                fontWeight: FontWeight.bold,
+                color: Color(0xFF22215B)),
           ),
           SizedBox(
             height: 10,
           ),
           Text(
             'Best cloud storage platform for all business and individuals to manage there data \n\nJoin For Free.',
-            style: TextStyle(
-                fontSize: 14, color: Color(0xFF7B7F9E)),
+            style: TextStyle(fontSize: 14, color: Color(0xFF7B7F9E)),
           ),
           SizedBox(
             height: 20,
           ),
           GestureDetector(
-            onTap: () { print("Smart Id"); },
+            onTap: () {
+              print("Smart Id");
+            },
             child: Container(
               decoration: BoxDecoration(
                 color: Color.fromRGBO(86, 125, 244, 0.1),
@@ -91,9 +96,11 @@ class _WelcomeState extends State<Welcome> {
                     children: <Widget>[
                       Image.asset('assets/img/huella.png'),
                       SizedBox(width: 10),
-                      Text('Smart Id',
+                      Text(
+                        'Smart Id',
                         style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
                             color: Color(0xFF567DF4)),
                       ),
                     ],
@@ -104,7 +111,9 @@ class _WelcomeState extends State<Welcome> {
           ),
           SizedBox(height: 20),
           GestureDetector(
-            onTap: () { print("Sign in"); },
+            onTap: () {
+              print("Sign in");
+            },
             child: Container(
               decoration: BoxDecoration(
                 color: Color(0xFF567DF4),
@@ -118,9 +127,11 @@ class _WelcomeState extends State<Welcome> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Text('Sign in',
+                      Text(
+                        'Sign in',
                         style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
                             color: Color(0xFFFFFFFF)),
                       ),
                       SizedBox(width: 10),
@@ -136,5 +147,42 @@ class _WelcomeState extends State<Welcome> {
     );
   }
 
-}
+  Widget SocialWelcome() {
+    return Container(
+        margin: EdgeInsets.only(top: 40),
+        child: Column(
+          children: <Widget>[
+            Text(
+              "Use Social Login",
+              style: TextStyle(fontSize: 12, color: Color(0XFF1B1D28)),
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 32),
+              width: 150,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Image.asset('assets/img/instagram.png'),
+                  Image.asset('assets/img/twitter.png'),
+                  Image.asset('assets/img/facebook.png'),
+                ],
+              ),
+            )
+          ],
+        ));
+  }
 
+  Widget CreateAccountWelcome() {
+    return Container(
+      margin: EdgeInsets.only(top: 52),
+      child: Text(
+        "Create an account",
+        style: TextStyle(
+          fontSize: 16,
+          color: Color(0XFF1B1D28),
+          fontWeight: FontWeight.w400
+        ),
+      ),
+    );
+  }
+}
